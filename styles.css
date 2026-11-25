@@ -1,0 +1,73 @@
+:root {
+  color-scheme: light dark;
+  --paper: #f8f2eb;
+  --ink: #3d2a27;
+  --plum: #7a5566;
+  --rose: #e3c2b7;
+  --line: #d8b9b5;
+  --card: #fffaf6;
+  --button-text: #fffaf6;
+  --body: system-ui, sans-serif;
+  --editorial: Baskerville, "Iowan Old Style", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #3d2a27;
+    --ink: #f8f2eb;
+    --plum: #e3c2b7;
+    --rose: #5b4144;
+    --line: #967270;
+    --card: #493331;
+    --button-text: #3d2a27;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.65 var(--body); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .23em; }
+a:focus-visible { outline: .16rem solid var(--plum); outline-offset: .25rem; }
+.skip { position: absolute; top: .65rem; left: .65rem; z-index: 2; transform: translateY(-200%); background: var(--card); padding: .55rem .9rem; }
+.skip:focus { transform: none; }
+.shell { width: min(calc(100% - 3rem), 74rem); margin-inline: auto; }
+.masthead { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; min-height: 6rem; }
+.mark { display: block; width: clamp(9rem, 20vw, 12rem); }
+.menu { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem clamp(1rem, 3vw, 2.4rem); font-size: .95rem; }
+.menu a { padding-block: .4rem; }
+.menu a:not(:hover) { text-decoration-color: transparent; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 1fr); align-items: center; gap: clamp(2rem, 7vw, 6rem); margin-block: 2rem clamp(3.5rem, 10vw, 8rem); }
+.hero h1 { font: italic 400 clamp(4.1rem, 8vw, 7.8rem)/.91 var(--editorial); letter-spacing: -.045em; margin: 0 0 1.4rem; }
+.hero-copy p { max-width: 28rem; font-size: 1.14rem; margin-bottom: 1.85rem; }
+.button { display: inline-block; background: var(--plum); color: var(--button-text); text-decoration: none; border-radius: 1rem; padding: .75rem 1.25rem; font-weight: 650; }
+.button:hover { text-decoration: underline; }
+.hero-art { margin: 0; position: relative; align-self: stretch; aspect-ratio: 4 / 5; min-height: 25rem; border-radius: 9rem 9rem 1.4rem 1.4rem; overflow: hidden; background: var(--rose); }
+.hero-art img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: 50% 14%; }
+.hero-art figcaption { position: absolute; bottom: 1rem; left: 1rem; padding: .35rem .7rem; font-size: .875rem; background: var(--card); border-radius: .55rem; }
+.guide { display: grid; grid-template-columns: minmax(12rem, .8fr) minmax(0, 1fr); column-gap: clamp(2rem, 7vw, 6rem); align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 1.6rem; padding: clamp(1.25rem, 4vw, 4rem); }
+.guide h2, .looks h2, .document h1 { font: 400 clamp(2.8rem, 5vw, 4.4rem)/1 var(--editorial); margin: 0 0 1.1rem; letter-spacing: -.025em; }
+.guide p { max-width: 33rem; }
+.guide img { width: min(100%, 17rem); border-radius: 1.75rem; border: 1px solid var(--line); margin-inline: auto; }
+.looks { margin-block: clamp(3rem, 8vw, 7rem); }
+.look-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.9rem, 2vw, 2rem); }
+.look-grid figure { margin: 0; }
+.look-grid img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: .9rem; object-position: 50% 34%; }
+.look-grid figcaption { margin-top: .45rem; }
+.footer { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.2rem; border-top: 1px solid var(--line); padding-block: 1.45rem 2rem; }
+.footer p { flex-basis: 100%; margin: 0; font-weight: 650; }
+.footer a { font-size: .95rem; padding-block: .35rem; }
+.document { width: min(calc(100% - 3rem), 42rem); margin: 3rem auto 5rem; }
+.document h2 { font: 400 2rem/1.15 var(--editorial); margin: 2rem 0 .6rem; }
+.document p, .document li { max-width: 66ch; }
+.draft { background: var(--card); padding: .65rem .85rem; border-left: .2rem solid var(--plum); }
+@media (max-width: 45rem) {
+  .hero, .guide { grid-template-columns: 1fr; }
+  .masthead { min-height: 5.5rem; }
+  .hero-art { min-height: 24rem; }
+  .guide > div { grid-row: 1; }
+  .guide img { margin-top: 1.5rem; }
+}
+@media (max-width: 25rem) {
+  .shell, .document { width: calc(100% - 2rem); }
+  .masthead { flex-wrap: wrap; padding-block: 1rem; gap: .4rem; }
+  .hero h1 { font-size: 3.75rem; }
+  .look-grid { grid-template-columns: 1fr; }
+}
